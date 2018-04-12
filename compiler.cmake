@@ -57,7 +57,7 @@ function (setup_custom_target_properties TARGET)
     set(BIN_FILE ${TARGET}.bin)
 
     add_custom_command(TARGET ${TARGET} POST_BUILD
-        COMMAND ${OBJCOPY} -Obinary $<TARGET_FILE:${TARGET}> ${BIN_FILE}
+        COMMAND ${OBJCOPY} -Obinary $<TARGET_FILE:${TARGET}> ${CMAKE_BINARY_DIR}/${BIN_FILE}
         COMMENT "BUILDING ${BIN_FILE}"
         COMMAND ${OBJDUMP} -DS $<TARGET_FILE:${TARGET}> > ${TARGET}.dis
         COMMENT "CREATING ${TARGET}.dis"
