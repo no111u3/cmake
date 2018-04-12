@@ -64,5 +64,5 @@ function (setup_custom_target_properties TARGET)
         COMMAND ${SIZE} $<TARGET_FILE:${TARGET}>
     )
 
-    add_custom_target(write DEPENDS ${CMAKE_BINARY_DIR}/${TARGET}.bin COMMAND ${ST_FLASH} --reset write ${CMAKE_BINARY_DIR}/${TARGET}.bin 0x8000000)
+    add_custom_target(write_${TARGET} DEPENDS ${CMAKE_BINARY_DIR}/${TARGET}.bin COMMAND ${ST_FLASH} --reset write ${CMAKE_BINARY_DIR}/${TARGET}.bin 0x8000000)
 endfunction()
